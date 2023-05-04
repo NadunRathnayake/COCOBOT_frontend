@@ -1,74 +1,93 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
-  TextInput,
+  StyleSheet,
+  Image,
   TouchableOpacity,
-  StyleSheet
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import auth from '@react-native-firebase/auth';
 
-const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Handle login logic here
-  }
+export default function Home({navigation}) {
+
+
+  const img = <Image source={require('../Images/images.jpg')} />;
+
+  signOut = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+    navigation.navigate('Login');
+  };
+
+  const signin = () => {
+    auth()
+      .signIn()
+      .then(() => console.log('User signed out!'));
+    navigation.navigate('Login');
+  };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+    <LinearGradient
+      colors={['#001233', '#002244']}
+      style={styles.linearGradient}>
+       <View>
+       <Text style={{color: '#fff', fontSize: 20,marginTop:50}}>COCOBOT</Text>
+        </View> 
+     
+    <View style={{marginTop:30,width:'100%'}}>
+      <Image style={{width:'100%'}} source={require('../Images/images.jpg')}/>
     </View>
-  );
-};
+     
+    <View style={{width:'100%',height:200}}>
 
-const styles = StyleSheet.create({
-  container: {
+
+    </View>
+
+       <View style={{alignItems:'center',justifyContent:'center',marginTop:20}}>
+
+          <TouchableOpacity   onPress={() => navigation.navigate('image-detect')} style={styles.button}>
+            <Text style={{color: '#000000',fontWeight:'bold',fontSize:18}}>Predictor</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={signOut}
+            style={{ alignItems: 'center',
+            justifyContent: 'center',
+            height: 40,
+            width:100,
+            borderRadius: 25,
+            marginTop:100,
+            borderWidth:1,
+            borderColor:'#B0DAFF'
+            }}>
+            <Text style={{color: '#fff',fontWeight:'bold',fontSize:18}}>SignOut</Text>
+          </TouchableOpacity>
+          </View>
+   
+    </LinearGradient>
+  );
+}
+var styles = StyleSheet.create({
+  linearGradient: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 30
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    paddingLeft: 15,
+    paddingRight: 15,
     borderRadius: 5,
-    marginBottom: 20,
-    paddingLeft: 10
+   
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: '#007AFF',
-    borderRadius: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 20
-  },
-  buttonText: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    width: 100,
+    borderRadius: 25,
+    marginTop:10,
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold'
-  }
-});
+    backgroundColor:'#B0DAFF'
+  
 
-export default LoginScreen;
+  },
+});

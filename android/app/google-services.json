@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549099474575",
+    "project_id": "cocobot-cc2d7",
+    "storage_bucket": "cocobot-cc2d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549099474575:android:5772227fed52436cc32afa",
+        "android_client_info": {
+          "package_name": "com.cocobot_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549099474575-f0mmck0ud0a2pq6ha39hsl5e7meum9rn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8wTuRJB1yw5TUdEXNnQSkdNxsqD3dpwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549099474575-f0mmck0ud0a2pq6ha39hsl5e7meum9rn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
